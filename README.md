@@ -1,3 +1,7 @@
 # dev-ops
 # Command for kafka start
-1 cd kafka && docker-compose -f kafka-compose.yml up -d
+
+cd kafka && docker-compose -f kafka-compose.yml up -d
+docker network create mynetwork
+docker network connect mynetwork kafka
+docker network connect mynetwork zookeeper

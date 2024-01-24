@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  kafka-manager:
+    image: sheepkiller/kafka-manager
+    networks:
+      - kafka-net
+    environment:
+      - ZK_HOSTS=zookeeper:2181
+      - APPLICATION_SECRET=your-secret  # Replace with your secret
+    deploy:
+      replicas: 1
+      placement:
+        constraints:
+          - node.role == worker
